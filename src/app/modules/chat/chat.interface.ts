@@ -1,5 +1,4 @@
 export type TConversation = {
-  companyId: string;
   participants: string[];
 };
 

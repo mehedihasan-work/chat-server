@@ -1,7 +1,6 @@
 import { z } from "zod";
 
 const conversationValidationSchema = z.object({
-  companyId: z.string(),
   participants: z.array(z.string()).length(2, {
     message: "A conversation must have exactly 2 participants",
   }),

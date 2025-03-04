@@ -24,21 +24,16 @@ const createConversation = async (payload: TConversation) => {
   }
 };
 
-const getUserConversations = async (companyId: string, empId: string) => {
+const getUserConversations = async (empId: string) => {
   const conversations = await prisma.conversation.findMany({
     where: {
-      companyId,
       participants: {
         hasSome: [empId],
       },
     },
   });
 
-  // Transform the result to extract only the other participant's ID
-  return conversations.map((conv) => ({
-    ...conv,
-    otherParticipant: conv.participants.find((id) => id !== empId), // Get the other participant
-  }));
+  return conversations;
 };
 
 const createConversationMessage = async (payload: TMessage) => {

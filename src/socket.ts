@@ -4,14 +4,12 @@ import { Server as SocketServer } from "socket.io";
 let io: SocketServer | null = null;
 
 export const initializeSocket = (server: HttpServer) => {
-  io = new SocketServer(server);
-  // io = new SocketServer(server, {
-  //   cors: {
-  //     origin: "*",
-  //     methods: ["GET", "POST"],
-  //     credentials: true,
-  //   },
-  // });
+  io = new SocketServer(server, {
+    cors: {
+      origin: "*",
+      methods: ["GET", "POST"],
+    },
+  });
   console.log("Socket.io initialized.");
 
   io.on("connection", (socket) => {
