@@ -14,10 +14,7 @@ router.post(
   ChatController.createConversation,
 );
 
-router.get(
-  "/conversation/:companyId/:empId",
-  ChatController.getUserConversations,
-);
+router.get("/conversation/:empId", ChatController.getUserConversations);
 
 router.post(
   "/message",

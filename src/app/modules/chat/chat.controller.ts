@@ -14,7 +14,7 @@ const createConversation = catchAsync(async (req, res) => {
 });
 const getUserConversations = catchAsync(async (req, res) => {
   const { companyId, empId } = req.params;
-  const result = await ChatServices.getUserConversations(companyId, empId);
+  const result = await ChatServices.getUserConversations(empId);
 
   res.status(httpStatus.OK).json({
     success: true,
